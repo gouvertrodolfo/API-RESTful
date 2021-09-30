@@ -1,0 +1,23 @@
+{
+  "name": "API-RESTful",
+  "version": "1.0.0",
+  "description": "Curso Node - Clase 8 Api RESTful - Entrega 4",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gouvertrodolfo/API-RESTful.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gouvertrodolfo/API-RESTful/issues"
+  },
+  "homepage": "https://github.com/gouvertrodolfo/API-RESTful#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
