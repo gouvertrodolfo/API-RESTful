@@ -1,10 +1,9 @@
 const fs = require('fs');
-const { get } = require('http');
 
  class Contenedor{
 
     constructor(NombreArchivo){
-        this.ruta=`./${NombreArchivo}`
+        this.ruta=`./archivos/${NombreArchivo}`
         this.encoding='utf-8'
     }
 
@@ -80,12 +79,33 @@ const { get } = require('http');
         await fs.promises.writeFile(this.ruta, JSON.stringify(array));
 
     }
-
     
     // deleteAll(): void - Elimina todos los objetos presentes en el archivo
     async deleteAll(){
         const items=[]
         await fs.promises.writeFile(this.ruta, JSON.stringify(items));
+    }
+
+    // update(Object):  Recibe un objeto, que busca en el archivo y actualiza .
+    async update(clave, data){
+
+        let items = await this.getAll()
+        let array=[];
+
+        items.forEach(element => {
+            if(element.id == clave){
+                element.title = data.title
+                element.price = data.price
+                element.thumbnail = data.thumbnail
+            }
+        });
+
+        try{
+            await fs.promises.writeFile(this.ruta, JSON.stringify(items));
+        }
+        catch(error){
+            console.log(`Error al guardar archivo ${error}` )
+        }
     }
 }
 
